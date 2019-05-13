@@ -116,3 +116,27 @@ contactInfo[4].textContent = siteContent.contact["email"]
 //footer//
 let footerContent = document.querySelector('footer > p');
 footerContent.textContent = siteContent.footer.copyright;
+
+let textContent = document.querySelectorAll('.main-content h4');
+textContent.forEach(obj => {
+  obj.style.textAlign = 'center'
+  obj.style.fontSize = '1.2rem'
+});
+
+let allTheTexts = document.querySelectorAll('*');
+
+let colorizerButton = document.createElement('button');
+colorizerButton.textContent = 'Randomize Colors!';
+colorizerButton.style.height = '50px'
+
+let ctaSection = document.querySelector('.cta > .cta-text');
+ctaSection.append(colorizerButton);
+
+colorizerButton.onclick = function(){
+allTheTexts.forEach(obj => {
+  let red = Math.floor(Math.random() * Math.floor(256));
+  let green = Math.floor(Math.random() * Math.floor(256));
+  let blue = Math.floor(Math.random() * Math.floor(256));
+  obj.style.color = `rgb(${red},${green},${blue})`
+})
+}
